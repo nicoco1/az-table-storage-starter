@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Core", "AzTableStorage.Core\AzTableStorage.Core.csproj", "{83307FD1-42CE-4CF2-8AAA-440B09C2DABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Core", "01. Core", "{4F6A03E6-3154-4429-BA30-AA9B40B1EF02}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Dto", "AzTableStorage.Dto\AzTableStorage.Dto.csproj", "{38840C9C-9887-4497-9CCA-B7214049F0BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Domain", "AzTableStorage.Domain\AzTableStorage.Domain.csproj", "{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Shared", "AzTableStorage.Shared\AzTableStorage.Shared.csproj", "{8C20535F-81B4-4D15-8E3C-3296E5411504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzTableStorage.Api", "AzTableStorage.Api\AzTableStorage.Api.csproj", "{74108820-28D3-4655-B389-38B13C385749}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83307FD1-42CE-4CF2-8AAA-440B09C2DABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83307FD1-42CE-4CF2-8AAA-440B09C2DABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83307FD1-42CE-4CF2-8AAA-440B09C2DABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83307FD1-42CE-4CF2-8AAA-440B09C2DABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38840C9C-9887-4497-9CCA-B7214049F0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38840C9C-9887-4497-9CCA-B7214049F0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38840C9C-9887-4497-9CCA-B7214049F0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38840C9C-9887-4497-9CCA-B7214049F0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C20535F-81B4-4D15-8E3C-3296E5411504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C20535F-81B4-4D15-8E3C-3296E5411504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C20535F-81B4-4D15-8E3C-3296E5411504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C20535F-81B4-4D15-8E3C-3296E5411504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74108820-28D3-4655-B389-38B13C385749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74108820-28D3-4655-B389-38B13C385749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74108820-28D3-4655-B389-38B13C385749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74108820-28D3-4655-B389-38B13C385749}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83307FD1-42CE-4CF2-8AAA-440B09C2DABB} = {4F6A03E6-3154-4429-BA30-AA9B40B1EF02}
+		{38840C9C-9887-4497-9CCA-B7214049F0BB} = {4F6A03E6-3154-4429-BA30-AA9B40B1EF02}
+		{EAA9AF31-42EC-4C31-A894-E978E3B8CB5E} = {4F6A03E6-3154-4429-BA30-AA9B40B1EF02}
+		{8C20535F-81B4-4D15-8E3C-3296E5411504} = {4F6A03E6-3154-4429-BA30-AA9B40B1EF02}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {783816B1-AD73-4AE7-A8EF-0C35473D86AE}
+	EndGlobalSection
+EndGlobal
