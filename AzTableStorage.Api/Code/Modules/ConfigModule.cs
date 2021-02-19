@@ -19,11 +19,6 @@ namespace AzTableStorage.Api.Code.Modules
                 .Register(_ => _configuration.GetSection("AppSettings").Get<AppSettings>())
                 .As<IAppSettings>()
                 .SingleInstance();
-
-            builder
-                .RegisterType<EnvironmentVariables>()
-                .As<IEnvironmentVariables>()
-                .InstancePerLifetimeScope();
         }
     }
 }

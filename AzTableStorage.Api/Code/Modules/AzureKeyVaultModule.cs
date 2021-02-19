@@ -3,9 +3,7 @@ using Autofac;
 using AzTableStorage.Core.Azure;
 using AzTableStorage.Shared.Config;
 using Azure.Core;
-using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using static AzTableStorage.Api.Code.Config.EnvironmentVariableKeys;
 
 namespace AzTableStorage.Api.Code.Modules
 {
@@ -22,7 +20,12 @@ namespace AzTableStorage.Api.Code.Modules
                 .RegisterType<KeyVaultAccessor>()
                 .As<IKeyVaultAccessor>()
                 .InstancePerLifetimeScope();
-            
+
+            builder
+                .RegisterType<ClientCertificateCredentialProvider>()
+                .As<IClientCertificateCredentialProvider>()
+                .InstancePerLifetimeScope();
+
             builder
                 .RegisterType<KeyVaultCache>()
                 .As<IKeyVaultCache>()
@@ -31,7 +34,7 @@ namespace AzTableStorage.Api.Code.Modules
 
         private static SecretClient ConfigureSecretClient(IComponentContext componentContext)
         {
-            var options = new SecretClientOptions()
+            var options = new SecretClientOptions
             {
                 Retry =
                 {
@@ -42,14 +45,12 @@ namespace AzTableStorage.Api.Code.Modules
                 }
             };
 
-            var environmentVariables = componentContext.Resolve<IEnvironmentVariables>();
-            var keyVaultName = environmentVariables.GetValue(AZURE_KEYVAULT_NAME);
-            var tenantId = environmentVariables.GetValue(AZURE_TENANT_ID);
-            var clientId = environmentVariables.GetValue(AZURE_CLIENT_ID);
-            var clientSecret = environmentVariables.GetValue(AZURE_CLIENT_SECRET);
-            var credentials = new ClientSecretCredential(tenantId, clientId, clientSecret);
+            // Because this app is not hosted in Azure, it uses X.509 certs to access the KeyVault
+            var appSettings = componentContext.Resolve<IAppSettings>();
+            var credentialsProvider = componentContext.Resolve<IClientCertificateCredentialProvider>();
+            var clientCertificateCredential = credentialsProvider.GetCredentials();
 
-            return new SecretClient(new Uri($"https://{keyVaultName}.vault.azure.net"), credentials, options);
+            return new SecretClient(new Uri($"https://{appSettings.AzureKeyVaultName}.vault.azure.net"), clientCertificateCredential, options);
         }
     }
 }

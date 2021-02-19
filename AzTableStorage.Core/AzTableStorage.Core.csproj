@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AzTableStorage.Domain\AzTableStorage.Domain.csproj" />
     <ProjectReference Include="..\AzTableStorage.Dto\AzTableStorage.Dto.csproj" />
+    <ProjectReference Include="..\AzTableStorage.Shared\AzTableStorage.Shared.csproj" />
   </ItemGroup>
 
 </Project>
