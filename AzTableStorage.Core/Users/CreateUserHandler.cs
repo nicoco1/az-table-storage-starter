@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AzTableStorage.Domain.Users;
-using Nicoco.Cqs.Query;
+using Nicoco.Lib.Cqs.Query;
 
 namespace AzTableStorage.Core.Users
 {

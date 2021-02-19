@@ -1,7 +1,5 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using AzTableStorage.Api.Code;
-using AzTableStorage.Api.Code.Config;
 using AzTableStorage.Api.Code.Modules;
 using AzTableStorage.Core;
 using Microsoft.AspNetCore.Builder;
@@ -10,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Nicoco.Cqs;
+using Nicoco.Lib.Cqs;
 
 namespace AzTableStorage.Api
 {

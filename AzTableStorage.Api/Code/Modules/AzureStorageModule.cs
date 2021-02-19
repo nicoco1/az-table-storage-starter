@@ -1,12 +1,9 @@
 using System;
-using System.Threading.Tasks;
 using Autofac;
 using AzTableStorage.Api.Code.Config;
 using AzTableStorage.Core.Azure;
 using AzTableStorage.Core.Users;
-using Microsoft.Azure.KeyVault;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 
 namespace AzTableStorage.Api.Code.Modules
 {
@@ -22,13 +19,12 @@ namespace AzTableStorage.Api.Code.Modules
 
         private static void ConfigureAzureStorageAccount(ContainerBuilder builder)
         {
-            builder.Register(c => CreateStorageAccount(FromKeyVaultSecret(c, c.Resolve<AppSecrets>().AzureTableStorageConnectionString)));
+            builder.Register(c => CreateStorageAccount(FromKeyVaultSecret(c, KeyVaultSecrets.AzureTableStorageConnectionString)));
         }
 
-        private static string FromKeyVaultSecret(IComponentContext c, string secretUri)
+        private static string FromKeyVaultSecret(IComponentContext c, string secretName)
         {
-            var keyVaultAccessor = c.Resolve<IKeyVaultAccessor>();
-            return keyVaultAccessor.GetSecret(secretUri).GetAwaiter().GetResult();
+            return c.Resolve<IKeyVaultCache>().GetCached(secretName).GetAwaiter().GetResult();
         }
 
         private static CloudStorageAccount CreateStorageAccount(string connectionString)

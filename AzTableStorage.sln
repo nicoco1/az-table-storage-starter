@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Domain", "Az
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Shared", "AzTableStorage.Shared\AzTableStorage.Shared.csproj", "{8C20535F-81B4-4D15-8E3C-3296E5411504}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzTableStorage.Api", "AzTableStorage.Api\AzTableStorage.Api.csproj", "{74108820-28D3-4655-B389-38B13C385749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzTableStorage.Api", "AzTableStorage.Api\AzTableStorage.Api.csproj", "{74108820-28D3-4655-B389-38B13C385749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
 using Autofac;
-using AzTableStorage.Api.Code.Config;
+using AzTableStorage.Shared.Config;
 using Microsoft.Extensions.Configuration;
 
 namespace AzTableStorage.Api.Code.Modules
@@ -15,8 +15,15 @@ namespace AzTableStorage.Api.Code.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.Register(_ => _configuration.GetSection("AppSettings").Get<AppSettings>()).SingleInstance();
-            builder.Register(_ => _configuration.GetSection("AppSecrets").Get<AppSecrets>()).SingleInstance();
+            builder
+                .Register(_ => _configuration.GetSection("AppSettings").Get<AppSettings>())
+                .As<IAppSettings>()
+                .SingleInstance();
+
+            builder
+                .RegisterType<EnvironmentVariables>()
+                .As<IEnvironmentVariables>()
+                .InstancePerLifetimeScope();
         }
     }
 }

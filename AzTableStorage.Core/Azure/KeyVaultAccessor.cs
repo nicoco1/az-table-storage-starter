@@ -1,26 +1,27 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Azure.KeyVault;
+using Azure.Security.KeyVault.Secrets;
 
 namespace AzTableStorage.Core.Azure
 {
     public interface IKeyVaultAccessor
     {
-        Task<string> GetSecret(string secretUri);
+        Task<string> GetSecret(string secretName);
     }
 
     public class KeyVaultAccessor : IKeyVaultAccessor
     {
-        private readonly IKeyVaultClient _keyVaultClient;
+        private readonly SecretClient _secretClient;
 
-        public KeyVaultAccessor(IKeyVaultClient keyVaultClient)
+        public KeyVaultAccessor(SecretClient secretClient)
         {
-            _keyVaultClient = keyVaultClient;
+            _secretClient = secretClient;
         }
 
-        public async Task<string> GetSecret(string secretUri)
+        public async Task<string> GetSecret(string secretName)
         {
-            var secretBundle = await _keyVaultClient.GetSecretAsync(secretUri);
-            return secretBundle.Value;
+            KeyVaultSecret secret = await _secretClient.GetSecretAsync(secretName);
+
+            return secret.Value;
         }
     }
 }

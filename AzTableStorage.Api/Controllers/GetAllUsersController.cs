@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using AzTableStorage.Core.Users;
-using Nicoco.Cqs.Query;
+using Nicoco.Lib.Cqs.Query;
 
 namespace AzTableStorage.Api.Controllers
 {
