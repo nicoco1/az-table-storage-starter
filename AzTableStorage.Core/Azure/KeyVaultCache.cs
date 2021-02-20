@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nicoco.Lib.Az.KeyVault;
 
 namespace AzTableStorage.Core.Azure
 {
